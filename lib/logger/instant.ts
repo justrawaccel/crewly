@@ -1,7 +1,7 @@
-import { pino } from "pino";
+import { config } from '@lib/config';
+import { pino, type LevelWithSilentOrString } from 'pino';
 
-// todo: load from yml config (need additional lib)
-const loggerLevel = "debug";
+const loggerLevel = config.features<LevelWithSilentOrString>('logger.level');
 
 const logger = pino({
   level: loggerLevel,
@@ -9,10 +9,10 @@ const logger = pino({
     level: (label) => ({ level: label }),
     bindings: (bindings) => ({
       pid: bindings.pid,
-      host: bindings.hostname,
-    }),
+      host: bindings.hostname
+    })
   },
-  timestamp: pino.stdTimeFunctions.isoTime,
+  timestamp: pino.stdTimeFunctions.isoTime
 });
 
 const createLogger = (context: string) => logger.child({ context });
