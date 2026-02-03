@@ -5,14 +5,17 @@ const loggerLevel = config.features<LevelWithSilentOrString>('logger.level');
 
 const logger = pino({
   level: loggerLevel,
-  formatters: {
-    level: (label) => ({ level: label }),
-    bindings: (bindings) => ({
-      pid: bindings.pid,
-      host: bindings.hostname
-    })
-  },
-  timestamp: pino.stdTimeFunctions.isoTime
+  transport: {
+    target: 'pino-pretty',
+    options: {
+      colorize: true,
+      translateTime: 'SYS:HH:MM:ss.l',
+      ignore: 'pid,hostname',
+      messageFormat: '{context} {msg}',
+      errorLikeObjectKeys: ['err', 'error'],
+      singleLine: false
+    }
+  }
 });
 
 const createLogger = (context: string) => logger.child({ context });
