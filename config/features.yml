@@ -1,0 +1,3 @@
+logger:
+  # debug, error, fatal, info, silent, trace, warn
+  level: 'debug'

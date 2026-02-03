@@ -17,8 +17,9 @@
     // project structure
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src*"],
-      "@config/*": ["./config/*"],
+      "@/*": ["./src/*"],
+      "@lib/*": ["./lib/*"],
+      "@config/*": ["./config/*"]
     },
 
     // strict options
@@ -52,8 +53,8 @@
     "sourceMap": true,
     "skipLibCheck": true,
     "removeComments": false,
-    "declaration": false,
+    "declaration": false
   },
-  "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "dist", "build", "generated"],
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules", "dist", "build", "generated"]
 }
