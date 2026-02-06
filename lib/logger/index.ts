@@ -11,5 +11,4 @@ const appLog = {
   trace: (message: string, meta?: Record<string, unknown>) => logger.trace(meta, message)
 };
 
-export { logger, createLogger } from './instant';
 export { appLog };
