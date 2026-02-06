@@ -6,9 +6,10 @@ import pg from 'pg';
 const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL });
 const adapter = new PrismaPg(pool);
 
-const db = new PrismaClient({
+const orm = new PrismaClient({
   adapter,
-  log: isDevelopment ? ['query', 'error', 'warn'] : ['error']
+  log: isDevelopment ? ['query', 'error', 'warn'] : ['error'],
+  errorFormat: 'minimal'
 });
 
-export { db };
+export { orm };

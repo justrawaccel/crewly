@@ -3,4 +3,4 @@
 export * from './logger';
 export * from './constants';
 export * from './config';
-export * from './database';
+export * from './orm';
