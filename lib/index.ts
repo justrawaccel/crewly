@@ -4,3 +4,4 @@ export * from './logger';
 export * from './constants';
 export * from './config';
 export * from './orm';
+export * from './redis';
