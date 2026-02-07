@@ -1,3 +1,3 @@
 # crewly
 
-the discord bot
+the open source discord bot
